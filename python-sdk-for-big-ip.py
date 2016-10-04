@@ -8,7 +8,7 @@ from f5.bigip import BigIP
 
 # Connect to the BigIP
 # bigip = BigIP("bigip.example.com", "admin", "somepassword")
-bigip = BigIP("sys.argv[1]", sys.argv[2], sys.argv[3])
+bigip = BigIP(sys.argv[1], sys.argv[2], sys.argv[3])
 
 # Get a list of all pools on the BigIP and print their name and their
 # members' name

@@ -1,0 +1,32 @@
+#!/usr/bin/ansible-playbook
+---
+#
+#      Copyright (c) 2015 World Wide Technology, Inc.
+#      All rights reserved.
+#
+#      author: Joel W. King
+#
+#
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  
+  vars_prompt:
+    - name: "f5_host"
+      prompt: "Enter F5 IP address"
+      private: no
+    - name: "username"
+      prompt: "Enter username"
+      private: no
+    - name: "password"
+      prompt: "Enter password"
+      private: yes
+
+  tasks:
+  - name: Create LTM Node
+    icontrol_install_config:
+      uri: "/mgmt/tm/ltm/node"
+      body: '{"name": "foo", "address": "192.0.2.63", "description": "created by f5toolkit"}'
+      host: "{{f5_host}}"
+      username: "{{username}}"
+      password: "{{password}}"

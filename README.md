@@ -10,7 +10,7 @@ This repository represents the concept of an ephemeral tool- allowing network en
 The installation and execution steps assume that [GitShell] (https://desktop.github.com/), [Vagrant] (https://www.vagrantup.com/) and [Oracle VM VirtualBox] (https://www.virtualbox.org/) are installed. The documentation steps are shown on a Windows 7 laptop.
 
 ## Installation
-Create a directory, enter it, and download the Vagrantfile.
+Create a directory, enter it, and download the Vagrantfile. If curl is not installed you can edit the file on your local machine and cut and paste the commands into the Vagrantfile.
 ```
 C:\Users\kingjoe\Documents\WWT\projects\Vagrant>
 
@@ -45,7 +45,7 @@ Edit the constants file and replace the F5 BigIP hostname, username and password
 ```
 root@vagrant-ubuntu-trusty-64:/home/vagrant/f5toolkit# sudo vi ./bin/constants.py
 ```
-Now log on the GUI of the F5 BigIP and run the program. The program prompts you to continue at each step to allow an opportunity to view the changes made to the LTM Pools.
+Now log on the GUI of the F5 BigIP and run the program. The program prompts you to continue at each step to allow an opportunity to view the changes made to the LTM Pools using the GUI.
 ```
 vagrant@vagrant-ubuntu-trusty-64:~/f5toolkit$ python ./bin/python-sdk-for-big-ip.py
 NEW_POOL1
@@ -87,7 +87,7 @@ changed: [localhost]
 PLAY RECAP *********************************************************************
 localhost                  : ok=1    changed=1    unreachable=0    failed=0
 ```
-Verify on the F5 BigIP GUI that the LTM note `foo` has been created.
+Verify on the F5 BigIP GUI that the LTM node `foo` has been created.
 
 ### Automate F5 Initial Setup - iControl & Ansible
 This lab illustrates how to automate the entire F5 initial setup by reading a CSV file and running an Ansible playbook.

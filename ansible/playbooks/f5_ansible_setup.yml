@@ -6,6 +6,7 @@
 #      Revision history:
 #        5 October 2016      |  1.0 - modified for vagrant
 #       10 Janary 2017       |  1.1 - added additional local modules for training class
+#       20 January 2017      |  1.2 - added cisco_ios_show.py
 #
 - name: Install modules to run the Automation of F5 Initial Setup playbook
   hosts: localhost
@@ -32,6 +33,7 @@
      - {repo: "joelwking/ansible-f5/master/", fn: F5_sdk_LTM_node.py, dn: "{{path.target}}"}
      - {repo: "joelwking/ansible-module-infoblox/molina/", fn: infoblox.py, dn: "{{path.target}}"}
      - {repo: "joelwking/ansible-f5/master/", fn: bigip_check.py, dn: "{{path.target}}"}
+     - {repo: "joelwking/ansible-ios/master/", fn: cisco_ios_show.py dn: "{{path.target}}"}
 
    playbooks:
      - {repo: "mwallco/f5_ansible/master/", fn: f5_initial_setup.yml, dn: "/home/vagrant/f5toolkit/ansible/playbooks/"}
